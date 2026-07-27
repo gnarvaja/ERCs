@@ -24,7 +24,7 @@ contracts/
 
 The interface defining all events (`PullApproval`, `TokensPulled`, `TransferPullAllowance`) and functions (`approvePull`, `pullFrom`, `pullAllowance`, `maxPullable`, `transferPullAllowance`, `permitPull`, `pullFromWithPermit`, `eip712Domain`, `nonces`)
 
-See [IPuller.sol](./interfaces/IPuller.sol).
+See [IPuller.sol](./contracts/interfaces/IPuller.sol).
 
 ### BasePuller
 
@@ -39,10 +39,10 @@ Abstract base contract implementing:
 
 Uses OpenZeppelin's `EIP712` for domain separators, `ECDSA` for signature recovery, and `SafeERC20` for token transfers.
 
-See [BasePuller.sol](./base/BasePuller.sol).
+See [BasePuller.sol](./contracts/base/BasePuller.sol).
 
 ### ERC4626Puller
 
 Concrete puller paired with a single ERC-4626 vault. Its `_sourceTokens` calls `vault.withdraw(amount, to, owner)` — the vault's own ERC-20 allowance mechanism consumes the owner's share approval, burns shares, and sends the underlying asset directly to the destination.
 
-See [ERC4626Puller.sol](./pullers/ERC4626Puller.sol).
+See [ERC4626Puller.sol](./contracts/pullers/ERC4626Puller.sol).
